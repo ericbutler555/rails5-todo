@@ -2,6 +2,7 @@ class TodosController < ApplicationController
   
   # display a list of all todos, /todos
   def index
+    @todos = Todo.all
   end
   
   # return a form for creating a new todo, /todos/new
