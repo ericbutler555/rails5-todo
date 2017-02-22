@@ -27,10 +27,18 @@ class TodosController < ApplicationController
   
   # return a form for editing an existing todo, todos/1/edit
   def edit
+    @todo = Todo.find(params[:id])
   end
   
   # update an existing todo, /todos/1
   def update
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_params)
+      flash[:notice] = "Todo was successfully updated"
+      redirect_to todo_path(@todo)
+    else
+      render 'edit'
+    end
   end
   
   # delete an existing todo, /todos/1
