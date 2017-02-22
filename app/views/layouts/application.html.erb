@@ -9,13 +9,7 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-    <ul>
-      <% flash.each do |name, msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-    <% end %>
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </body>
 </html>
